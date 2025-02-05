@@ -5,11 +5,11 @@ import re
 def calc(A,B):
         ai=str(A)
         bi=str(B)
-        p = re.compile('\d+(\.\d+)?')
-        if p.match(ai) or p.match(bi):
+        p = re.compile('\d+?') # 正規表現を変えた
+        if p.fullmatch(ai) and p.fullmatch(bi): # fullmatchに変えた，andに変えた
                 a=float(ai)
                 b=float(bi)
-                if 0<a and a<b and b<1000:
+                if 0<a<1000 and 0<b<1000: # a<bを消した
                         valid=True
                 else:
                         valid=False
